@@ -5,7 +5,7 @@ HOST: http://polls.apiblueprint.org/
 
 Polls is a simple API allowing consumers to view polls and vote in them.
 
-## Questions Collection [/questions]
+## Questions Collection [/v3/payment/ex/direct]
 
 ### List All Questions [GET]
 
@@ -13,68 +13,75 @@ Polls is a simple API allowing consumers to view polls and vote in them.
 
         [
             {
-                "question": "Favourite programming language?",
-                "published_at": "2015-08-05T08:40:51.620Z",
-                "choices": [
-                    {
-                        "choice": "Swift",
-                        "votes": 2048
-                    }, {
-                        "choice": "Python",
-                        "votes": 1024
-                    }, {
-                        "choice": "Objective-C",
-                        "votes": 512
-                    }, {
-                        "choice": "Ruby",
-                        "votes": 256
+                "code": 1000,
+                "message": {
+                    "notification": "Untuk total biaya di atas 1 juta, kamu mempunyai opsi pembayaran melalui metode pembayaran di bawah",
+                    "payment_method": {
+                        "title": "Bayar melalui bank",
+                        "list_bank": [
+                            {
+                                "id": 1,
+                                "icon": "https://dev-static.kudo.co.id/api/images/direct/bca-1513844841.png",
+                                "name": "BCA",
+                                "maintenance": 0,
+                                "description": [
+                                    "Pembayaran dapat dilakukan dengan melalui transfer ke nomor Virtual Account yang akan diberikan di halaman selanjutnya",
+                                    "Nomor Virtual Account hanya berlaku per 1 kali transaksi"
+                                ]
+                            },
+                            {
+                                "id": 2,
+                                "icon": "https://dev-static.kudo.co.id/api/images/direct/mandiri-1513053847.png",
+                                "name": "Mandiri",
+                                "maintenance": 0,
+                                "description": [
+                                    "Pembayaran dapat dilakukan dengan melalui transfer ke nomor Virtual Account yang akan diberikan di halaman selanjutnya",
+                                    "Nomor Virtual Account hanya berlaku per 1 kali transaksi"
+                                ]
+                            },
+                            {
+                                "id": 3,
+                                "icon": "https://dev-static.kudo.co.id/api/images/direct/permata-1513053872.png",
+                                "name": "Permata",
+                                "maintenance": 0,
+                                "description": [
+                                    "Pembayaran dapat dilakukan dengan melalui transfer ke nomor Virtual Account yang akan diberikan di halaman selanjutnya",
+                                    "Nomor Virtual Account hanya berlaku per 1 kali transaksi"
+                                ]
+                            },
+                            {
+                                "id": 4,
+                                "icon": "https://dev-static.kudo.co.id/api/images/direct/bri-1513053896.png",
+                                "name": "BRI",
+                                "maintenance": 0,
+                                "description": [
+                                    "Pembayaran dapat dilakukan dengan melalui transfer ke nomor Virtual Account yang akan diberikan di halaman selanjutnya",
+                                    "Nomor Virtual Account hanya berlaku per 1 kali transaksi"
+                                ]
+                            },
+                            {
+                                "id": 5,
+                                "icon": "https://dev-static.kudo.co.id/api/images/direct/danamon-1513053908.png",
+                                "name": "Danamon",
+                                "maintenance": 0,
+                                "description": [
+                                    "Pembayaran dapat dilakukan dengan melalui transfer ke nomor Virtual Account yang akan diberikan di halaman selanjutnya",
+                                    "Nomor Virtual Account hanya berlaku per 1 kali transaksi"
+                                ]
+                            },
+                            {
+                                "id": 6,
+                                "icon": "https://dev-static.kudo.co.id/api/images/direct/bank_lainnya-1512918414.png",
+                                "name": "Bank Lainnya",
+                                "maintenance": 0,
+                                "description": [
+                                    "Untuk pembayaran melalui bank lain akan dikenakan biaya transfer antar bank sebesar Rp 6,500",
+                                    "Pembayaran dapat dilakukan dengan melalui transfer ke nomor Virtual Account yang akan diberikan di halaman selanjutnya",
+                                    "Nomor Virtual Account hanya berlaku per 1 kali transaksi"
+                                ]
+                            }
+                        ]
                     }
-                ]
+                }
             }
         ]
-
-### Create a New Question [POST]
-
-You may create your own question using this action. It takes a JSON
-object containing a question and a collection of answers in the
-form of choices.
-
-+ Request (application/json)
-
-        {
-            "question": "Favourite programming language?",
-            "choices": [
-                "Swift",
-                "Python",
-                "Objective-C",
-                "Ruby"
-            ]
-        }
-
-+ Response 201 (application/json)
-
-    + Headers
-
-            Location: /questions/2
-
-    + Body
-
-            {
-                "question": "Favourite programming language?",
-                "published_at": "2015-08-05T08:40:51.620Z",
-                "choices": [
-                    {
-                        "choice": "Swift",
-                        "votes": 0
-                    }, {
-                        "choice": "Python",
-                        "votes": 0
-                    }, {
-                        "choice": "Objective-C",
-                        "votes": 0
-                    }, {
-                        "choice": "Ruby",
-                        "votes": 0
-                    }
-                ]
-            }
