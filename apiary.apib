@@ -8,6 +8,13 @@ Polls is a simple API allowing consumers to view polls and vote in them.
 ## Payment [/v3/payment/ex/direct]
 
 ### Get Payment List [GET]
+
++ Request
+    + Headers
+
+            Authorization: uDNTl8RWo6K2yQv6PHjSyvjwt518UZJ99ecXa2Ag
+            Chennel: MOBILE
+            
 + Response 200 (application/json)
 
         [
@@ -85,12 +92,26 @@ Polls is a simple API allowing consumers to view polls and vote in them.
             }
         ]
         
-+ Request
++ Request Without Header Authorization
     + Headers
-    
+
+            Chennel: MOBILE
+                
++ Response 401 (application/json)
+
+        [
+            {
+                "code": 2005,
+                "message": "Not Authorized"
+            }
+        ]
+        
++ Request Without Header Channel
+    + Headers
+
             Authorization: uDNTl8RWo6K2yQv6PHjSyvjwt518UZJ99ecXa2Ag
-            
-+ Response 200 (application/json)
+               
++ Response 401 (application/json)
 
         [
             {
